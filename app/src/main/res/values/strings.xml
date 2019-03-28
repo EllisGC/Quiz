@@ -8,8 +8,6 @@
     <string name="scoreboardButton">Scoreboard</string>
     <string name="premierLeagueButton">Premier League Table</string>
     <string name="quitButton">Quit</string>
-<<<<<<< HEAD
     <string name="news">News</string>
-=======
->>>>>>> 6b59bda2af21a39538d35a10a7b3b7c0039eb05a
+
 </resources>
