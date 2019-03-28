@@ -26,7 +26,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:onClick="button_PlayClicked"
-        android:text="@string/playButton" />
+        android:text="@string/playButton"
+        android:background="@drawable/btn_rounded"/>
 
     <Button
         android:id="@+id/button_Scoreboard"
