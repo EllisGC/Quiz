@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="scoreboardTitle">Scoreboard</string>
+    <string name="mainTitle">Football Quiz</string>
+    <string name="nextButton">Next</string>
+    <string name="previousButton">Previous</string>
+    <string name="playButton">Play</string>
+    <string name="scoreboardButton">Scoreboard</string>
+    <string name="premierLeagueButton">Premier League Table</string>
+    <string name="quitButton">Quit</string>
+    <string name="news">News</string>
+</resources>
