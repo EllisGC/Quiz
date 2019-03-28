@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "499657072778",
+    "firebase_url": "https://footballquiz-c0e4a.firebaseio.com",
+    "project_id": "footballquiz-c0e4a",
+    "storage_bucket": "footballquiz-c0e4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499657072778:android:639cd9773435deb7",
+        "android_client_info": {
+          "package_name": "com.example.quiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499657072778-9q2f2saqobmuoem0qhmv1qcgicc086fs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quiz",
+            "certificate_hash": "686760a16b03a9d6dbfc3f90c8b8365121da89fa"
+          }
+        },
+        {
+          "client_id": "499657072778-svq4irp0lnasp7rpl25fbncel2ldkjss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXow6Ke3taLuO5Fw2c8O-Xl3bmDP_hY94"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499657072778-svq4irp0lnasp7rpl25fbncel2ldkjss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
