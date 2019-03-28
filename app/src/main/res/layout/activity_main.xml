@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="ExtraText">
 
     <TextView
         android:id="@+id/textView"
@@ -23,11 +23,11 @@
         android:id="@+id/button_Play"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:onClick="button_PlayClicked"
         android:text="@string/playButton"
+        android:background="@drawable/round_button"
         />
 
 
@@ -38,7 +38,9 @@
         android:layout_height="wrap_content"
         android:onClick="button_ScoreboardClicked"
         android:text="@string/scoreboardButton"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/round_button"
+        />
 
     <Button
         android:id="@+id/button_PremierTable"
@@ -47,7 +49,8 @@
         android:onClick="button_PremierTable"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="@string/premierLeagueButton" />
+        android:text="@string/premierLeagueButton"
+        android:background="@drawable/round_button"/>
 
     <Button
         android:id="@+id/button_News"
@@ -56,7 +59,8 @@
         android:onClick="button_News"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="@string/news" />
+        android:text="@string/news"
+        android:background="@drawable/round_button"/>
 
 
     <Button
@@ -66,6 +70,7 @@
         android:layout_marginTop="20dp"
         android:onClick="button_QuitClicked"
         android:text="@string/quitButton"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/round_button"/>
 
 </LinearLayout>
