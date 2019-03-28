@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         System.exit(0);
     }
 
-<<<<<<< HEAD
+
     public void button_PremierTable(View view) {
         Uri uri = Uri.parse("https://www.premierleague.com/tables");
         startActivity(new Intent(Intent.ACTION_VIEW, uri));
@@ -41,11 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void button_News(View view) {
         Uri uri = Uri.parse("https://www.skysports.com/premier-league");
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
-=======
-    public void button_PremierTable(View view){
-        Uri uri = Uri.parse("https://www.premierleague.com/tables");
         startActivity(new Intent(Intent.ACTION_VIEW, uri));
->>>>>>> 6b59bda2af21a39538d35a10a7b3b7c0039eb05a
     }
+
+
 }
