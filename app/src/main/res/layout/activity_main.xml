@@ -23,11 +23,18 @@
         android:id="@+id/button_Play"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:onClick="button_PlayClicked"
         android:text="@string/playButton"
         android:background="@drawable/btn_rounded"/>
+=======
+        android:onClick="button_PlayClicked"
+        android:text="@string/playButton"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"/>
+>>>>>>> 6b59bda2af21a39538d35a10a7b3b7c0039eb05a
 
     <Button
         android:id="@+id/button_Scoreboard"
@@ -46,6 +53,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:text="@string/premierLeagueButton" />
+<<<<<<< HEAD
     <Button
         android:id="@+id/button_News"
         android:layout_width="350dp"
@@ -54,6 +62,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:text="@string/news" />
+=======
+>>>>>>> 6b59bda2af21a39538d35a10a7b3b7c0039eb05a
 
     <Button
         android:id="@+id/button_Quit"
