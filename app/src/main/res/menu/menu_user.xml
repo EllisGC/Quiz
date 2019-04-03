@@ -6,6 +6,7 @@
     <item
         android:id="@+id/itemProfile"
         android:title="Profile"
+        android:onClick="EnterProfile"
         app:showAsAction="never" />
 
     <item

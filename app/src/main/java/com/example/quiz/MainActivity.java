@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    public void EnterProfile(MenuItem item) {
+        startActivity(new Intent(MainActivity.this, UserProfile.class));
+    }
 }

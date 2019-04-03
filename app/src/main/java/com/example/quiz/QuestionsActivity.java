@@ -20,6 +20,10 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +40,7 @@ public class QuestionsActivity extends AppCompatActivity {
     private int score = 0;
     private String name = "";
     private boolean finished = false;
+    private FirebaseAuth firebaseAuth;
 
     Button btn;
     ProgressBar progressBar;
@@ -67,6 +72,8 @@ public class QuestionsActivity extends AppCompatActivity {
         questionAns4 = (RadioButton)findViewById(R.id.radioButton_Answer4);
         imageView = (ImageView)findViewById(R.id.imageView);
         imageViewContext = imageView.getContext();
+
+
 
         readQuestionData();
         UpdateQuestion();
@@ -131,6 +138,10 @@ public class QuestionsActivity extends AppCompatActivity {
 
 
     public void button_Next(View view) {
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
         if(!onLastQuestion){
             if(radioGroup.getCheckedRadioButtonId() != -1){
                 if (selectedIndex != questions.size()-1){
@@ -166,34 +177,65 @@ public class QuestionsActivity extends AppCompatActivity {
                 finished = true;
             }
 
-            //Show dialog so user can enter name.
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Score: " + score + "/15, Enter name");
 
-            final EditText input = new EditText(this);
-            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-            builder.setView(input);
 
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    name = input.getText().toString();
-                    if(!TextUtils.isEmpty(name)){
-                        if(name.length() >= 10)
-                            name = name.substring(0, 9);
-                        db.WriteNewScore(new Score(name, score));
-                        startActivity(new Intent(QuestionsActivity.this, activity_scoreboard.class));
-                        finish();
+
+
+            //If user is logged in add name and score to database
+            if(user != null){
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Score: " + score);
+
+                name = user.getDisplayName();
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                            if(name.length() >= 10)
+                                name = name.substring(0, 9);
+                            db.WriteNewScore(new Score(name, score));
+                            finish();
+                            startActivity(new Intent(QuestionsActivity.this, activity_scoreboard.class));
+
+
                     }
-                }
-            });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-            builder.show();
+                });
+
+                builder.show();
+
+            } else {
+
+                //Show dialog so user can enter name.
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Score: " + score + "/15, Enter name");
+
+                final EditText input = new EditText(this);
+                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                builder.setView(input);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        name = input.getText().toString();
+                        if (!TextUtils.isEmpty(name)) {
+                            if (name.length() >= 10)
+                                name = name.substring(0, 9);
+                            db.WriteNewScore(new Score(name, score));
+                            startActivity(new Intent(QuestionsActivity.this, activity_scoreboard.class));
+                            finish();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
         }
     }
 

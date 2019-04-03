@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(validate()){
                    String user_email = userEmail.getText().toString().trim();
                    String user_password = userPassword.getText().toString().trim();
-                   final String user_name = userName.getText().toString().trim();
+
 
 
                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_password)
@@ -56,9 +56,11 @@ public class RegisterActivity extends AppCompatActivity {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if(task.isSuccessful()) {
-                               FirebaseUser user = firebaseAuth.getCurrentUser();
+                               FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                               UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(user_name).build();
+                               UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(userName.getText().toString()).build();
+
+                               user.updateProfile(profileUpdates);
 
                                Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                startActivity(new Intent(RegisterActivity.this, SignInActivity.class));
